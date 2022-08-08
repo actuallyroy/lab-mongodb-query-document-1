@@ -13,7 +13,8 @@ app.get('/', async (req, res) => {
     
     try {
         let db = await client.db('testDB')
-        
+        let compnies = await db.collection('compnies').find({}, {limit: 10}).toArray();
+        res.json(compnies)
     } catch (error) {
         
     }
